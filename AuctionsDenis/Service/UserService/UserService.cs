@@ -29,7 +29,7 @@ public class UserService : IUserService
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var user = _context.Users.FirstOrDefault(x => x.UserName == model.Username);
+            var user = _context.Users.FirstOrDefault(x => x.UserName == model.UserName);
 
             // validate
             if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
@@ -54,8 +54,8 @@ public class UserService : IUserService
         public void Register(RegisterRequest model)
         {
             // validate
-            if (_context.Users.Any(x => x.UserName == model.Username))
-                throw new AppException("Username '" + model.Username + "' is already taken");
+            if (_context.Users.Any(x => x.UserName == model.UserName))
+                throw new AppException("Username '" + model.UserName + "' is already taken");
 
             // map model to new user object
             var user = _mapper.Map<Users>(model);
@@ -73,8 +73,8 @@ public class UserService : IUserService
             var user = getUser(id);
 
             // validate
-            if (model.Username != user.UserName && _context.Users.Any(x => x.UserName == model.Username))
-                throw new AppException("Username '" + model.Username + "' is already taken");
+            if (model.UserName != user.UserName && _context.Users.Any(x => x.UserName == model.UserName))
+                throw new AppException("Username '" + model.UserName + "' is already taken");
 
             // hash password if it was entered
             if (!string.IsNullOrEmpty(model.Password))

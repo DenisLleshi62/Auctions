@@ -10,6 +10,6 @@ public class Bids
     public int ProductId { get; set; }
     public int BiderId { get; set; }
     [Column(TypeName = "decimal(8,2)")]
-    public decimal BidAmound { get; set; }
+    public decimal BidAmount { get; set; }
    
 }

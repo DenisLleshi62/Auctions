@@ -5,7 +5,7 @@ using WebApi.Authorization;
 using WebApi.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 // Add services to the container.
 
 builder.Services.AddControllers();
