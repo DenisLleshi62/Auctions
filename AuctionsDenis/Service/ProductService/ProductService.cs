@@ -28,6 +28,7 @@ public class ProductService : IProductService
     public  IEnumerable<GetProduct> GetAllProducts()
     {
         var query = (from p in _context.Set<Product>()
+            where p.StatusActive==true
             join b in _context.Set<Bids>()
                 on p.HighestBidId equals b.BidId into bids
             from b in bids.DefaultIfEmpty()
@@ -68,6 +69,35 @@ public class ProductService : IProductService
         item.Product = product;
         item.Bids = GetBidsByProduct(id);
         return item;
+    }
+
+    public void ExpiredProduct()
+    {
+        var product = (from p in _context.Set<Product>()
+            where p.FinishingDate < DateTime.Now && p.StatusActive == true 
+                select p).ToList();
+
+        foreach (var p in product)
+        {
+            if (p.HighestBidId!=0)
+            {
+                var bid = GetBid(p.HighestBidId);
+                var biderWallet= _userService.GetWallet(bid.BiderId);
+                var sellerWallet= _userService.GetWallet(p.SellerId);
+                biderWallet.Amount = biderWallet.Amount - bid.BidAmount;
+                sellerWallet.Amount = sellerWallet.Amount + bid.BidAmount;
+                sellerWallet.UsableAmount = sellerWallet.UsableAmount + bid.BidAmount;
+                _context.Wallet.Update(biderWallet);
+                _context.Wallet.Update(sellerWallet);
+                _context.SaveChanges();
+            }
+            var item = GetProduct(p.ProductId);
+            item.StatusActive = false;
+            _context.Product.Update(item);
+            _context.SaveChanges();
+        }
+        Console.WriteLine("done : " + DateTime.Now.ToString());
+        
     }
 
     public void Bid(Bid model)

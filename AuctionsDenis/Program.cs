@@ -1,4 +1,5 @@
 
+using AuctionsDenis.ScheduleTask;
 using AuctionsDenis.Service;
 using AuctionsProject.Data;
 using WebApi.Authorization;
@@ -13,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped((_) => new AuctionsContext());
-
+builder.Services.AddSingleton<IHostedService, ExpiredProductSchedule>();
 builder.Services.RegisterServices();
 
 

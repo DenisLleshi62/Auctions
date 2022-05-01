@@ -70,8 +70,8 @@ public class UserService : IUserService
             _context.SaveChanges();
             
             var wallet = new Wallet();
-            wallet.Amount=(decimal)10000.00;
-            wallet.UsableAmount=(decimal)10000.00;
+            wallet.Amount=(decimal)1000.00;
+            wallet.UsableAmount=(decimal)1000.00;
             wallet.UserId = user.UserId;
             _context.Wallet.Add(wallet);
             _context.SaveChanges();

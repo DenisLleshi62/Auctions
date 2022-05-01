@@ -1143,6 +1143,15 @@
           }
         }
       },
+      "NCrontab/3.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NCrontab.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NCrontab.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.0.6": {
         "type": "package",
         "dependencies": {
@@ -3579,6 +3588,24 @@
         "version.txt"
       ]
     },
+    "NCrontab/3.3.1": {
+      "sha512": "G3tzcIIgsiyZyVbHNPyn5+adaM9UjeVNgjrRsvXU7wo2sMhpvpQrir29dcjIND53H/fuTdgg9nI3SfFFg7barA==",
+      "type": "package",
+      "path": "ncrontab/3.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING.txt",
+        "lib/net35/NCrontab.dll",
+        "lib/net35/NCrontab.pdb",
+        "lib/netstandard1.0/NCrontab.dll",
+        "lib/netstandard1.0/NCrontab.pdb",
+        "lib/netstandard2.0/NCrontab.dll",
+        "lib/netstandard2.0/NCrontab.pdb",
+        "ncrontab.3.3.1.nupkg.sha512",
+        "ncrontab.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.0.6": {
       "sha512": "zssYqiaucyGArZfg74rJuzK0ewgZiidsRVrZTmP7JLNvK806gXg6PGA46XzoJGpNPPA5uRcumwvVp6YTYxtQ5w==",
       "type": "package",
@@ -5755,7 +5782,8 @@
       "System.IdentityModel.Tokens.Jwt >= 6.17.0",
       "System.Linq >= 4.3.0",
       "System.Linq.Expressions >= 4.3.0",
-      "System.Linq.Queryable >= 4.3.0"
+      "System.Linq.Queryable >= 4.3.0",
+      "ncrontab >= 3.3.1"
     ]
   },
   "packageFolders": {
@@ -5862,6 +5890,10 @@
           "System.Linq.Queryable": {
             "target": "Package",
             "version": "[4.3.0, )"
+          },
+          "ncrontab": {
+            "target": "Package",
+            "version": "[3.3.1, )"
           }
         },
         "imports": [

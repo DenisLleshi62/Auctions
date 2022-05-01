@@ -105,6 +105,10 @@
             "System.Linq.Queryable": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "ncrontab": {
+              "target": "Package",
+              "version": "[3.3.1, )"
             }
           },
           "imports": [
