@@ -311,3 +311,4 @@ C:\Users\denis\OneDrive\Desktop\AuctionsDenis\AuctionsDenis\bin\Debug\net6.0\zh-
 C:\Users\denis\OneDrive\Desktop\AuctionsDenis\AuctionsDenis\bin\Debug\net6.0\zh-Hans\Humanizer.resources.dll
 C:\Users\denis\OneDrive\Desktop\AuctionsDenis\AuctionsDenis\bin\Debug\net6.0\zh-Hant\Humanizer.resources.dll
 C:\Users\denis\OneDrive\Desktop\AuctionsDenis\AuctionsDenis\bin\Debug\net6.0\NCrontab.dll
+C:\Users\denis\OneDrive\Desktop\AuctionsDenis\AuctionsDenis\bin\Debug\net6.0\FluentValidation.dll

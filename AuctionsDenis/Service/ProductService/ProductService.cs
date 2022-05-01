@@ -166,6 +166,13 @@ public class ProductService : IProductService
     public void DeleteProduct(int id)
     {
         var product = GetProduct(id);
+        if (product.HighestBidId !=0)
+        {
+            var oldBid = GetBid(product.HighestBidId);
+            var oldBiderWallet= _userService.GetWallet(oldBid.BiderId);
+            oldBiderWallet.UsableAmount = oldBiderWallet.UsableAmount + oldBid.BidAmount;
+            _context.Wallet.Update(oldBiderWallet);
+        }
         _context.Product.Remove(product);
         _context.SaveChanges();
     }

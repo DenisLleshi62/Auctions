@@ -28,6 +28,11 @@ namespace AuctionsDenis.Controllers;
             _appSettings = appSettings.Value;
         }
 
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("Login")]
         public IActionResult Authenticate(AuthenticateRequest model)
@@ -36,6 +41,12 @@ namespace AuctionsDenis.Controllers;
             return Ok(response);
         }
 
+        
+        /// <summary>
+        /// to create a new account
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest model)
@@ -43,17 +54,24 @@ namespace AuctionsDenis.Controllers;
             _userService.Register(model);
             return Ok(new { message = "Registration successful" });
         }
+        /// <summary>
+        /// to return all users info
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet("AllUsers")]
         public IActionResult GetAll()
         {
-          
-            
             var users = _userService.GetAll();
             IEnumerable<GetUserResponse> results;
             results = users.Adapt<IEnumerable<GetUserResponse>>();
             return Ok(results);
         }
+        /// <summary>
+        /// get the user info by id
+        /// </summary>
+        /// <param name="id">userId</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
@@ -63,6 +81,12 @@ namespace AuctionsDenis.Controllers;
             results = user.Adapt<GetUserResponse>();
             return Ok(results);
         }
+        /// <summary>
+        /// to uptade user info by id
+        /// </summary>
+        /// <param name="id">userId</param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPut("{id}")]
         public IActionResult Update(int id, UpdateRequest model)
@@ -70,6 +94,11 @@ namespace AuctionsDenis.Controllers;
             _userService.Update(id, model);
             return Ok(new { message = "User updated successfully" });
         }
+        /// <summary>
+        /// to delete account by user id
+        /// </summary>
+        /// <param name="id">userId</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

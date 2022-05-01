@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EViD+MZTuTWtTWDOrXATKIvXK9F+oskb7FU3Abdgs6Vbzyq4x8RNkyF9OUzpfdYhWIoE+TWIT+jf9ALWv/Pf6Q==",
+  "dgSpecHash": "aeuUUIeymT2BF2jKLeQcnR/waa8sbsyl03h00kHO7VbB/d3u0Gsczoq+nG0ehpl4SWM0i0sPPegfg68z/9+h4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\denis\\OneDrive\\Desktop\\AuctionsDenis\\AuctionsDenis\\AuctionsDenis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\denis\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\fluentvalidation\\11.0.0\\fluentvalidation.11.0.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
