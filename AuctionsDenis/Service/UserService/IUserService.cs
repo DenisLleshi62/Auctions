@@ -13,6 +13,7 @@ namespace AuctionsDenis.Service.UserService
         void Register(RegisterRequest model);
         void Update(int id, UpdateRequest model);
         void Delete(int id);
+        Wallet GetWallet(int userId);
 
     }
 }

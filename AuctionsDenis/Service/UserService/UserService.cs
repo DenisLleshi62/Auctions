@@ -108,6 +108,14 @@ public class UserService : IUserService
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
+        public Wallet GetWallet(int userId)
+        {
+            var wallet = (from w in _context.Set<Wallet>()
+                where w.UserId == userId
+                select w).First();
+
+            return wallet;
+        }
         // helper methods
         private Users getUser(int id)
         {

@@ -29,19 +29,26 @@ public IActionResult CreateProduct(int userId,CreateProducts model)
     return Ok(new { message = "Product Created successful" });
 }
 [AllowAnonymous]
+[HttpPost("Bid")]
+public IActionResult Bid([FromBody]Bid bid)
+{
+    _productService.Bid(bid);
+    return Ok(new { message = "Bid placed successful" });
+}
+[AllowAnonymous]
 [HttpGet("AllProducts")]
 public IActionResult GetAll()
 {
     var products = _productService.GetAllProducts();
     return Ok(products);
 }
-// [AllowAnonymous]
-// [HttpGet("product/{id}")]
-// public IActionResult GetById(int id)
-// {
-//     var product = _productService.GetProductById(id);
-//     return Ok(results);
-// }
+[AllowAnonymous]
+[HttpGet("product/{id}")]
+public IActionResult GetById(int id)
+{
+    var product = _productService.GetProductById(id);
+    return Ok(product);
+}
 [AllowAnonymous]
 [HttpPut("product/{id}")]
 public IActionResult Update(int id, UpdateProduct model)
