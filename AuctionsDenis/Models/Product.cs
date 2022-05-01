@@ -12,6 +12,7 @@ public class Product
     public string ProductName { get; set; }
     [Column(TypeName = "decimal(8,2)")]
     public decimal StartingBid { get; set; }
+    public bool StatusActive { get; set; }
     public DateTime StartingDate { get; set; }
     public DateTime FinishingDate { get; set; }
     public int HighestBidId { get; set; }

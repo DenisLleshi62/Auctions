@@ -62,10 +62,20 @@ public class UserService : IUserService
 
             // hash password
             user.PasswordHash = BCryptNet.HashPassword(model.Password);
-
+           
             // save user
             _context.Users.Add(user);
+           
+            
             _context.SaveChanges();
+            
+            var wallet = new Wallet();
+            wallet.Amount=(decimal)10000.00;
+            wallet.UsableAmount=(decimal)10000.00;
+            wallet.UserId = user.UserId;
+            _context.Wallet.Add(wallet);
+            _context.SaveChanges();
+            
         }
 
         public void Update(int id, UpdateRequest model)
@@ -79,6 +89,12 @@ public class UserService : IUserService
             // hash password if it was entered
             if (!string.IsNullOrEmpty(model.Password))
                 user.PasswordHash = BCryptNet.HashPassword(model.Password);
+            if (string.IsNullOrEmpty(model.FirstName))
+                model.FirstName = user.FirstName;
+            if (string.IsNullOrEmpty(model.LastName))
+                model.LastName=user.LastName;
+            if (string.IsNullOrEmpty(model.UserName))
+                model.UserName = user.UserName;
 
             // copy model to user and save
             _mapper.Map(model, user);

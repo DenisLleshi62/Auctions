@@ -6,6 +6,8 @@ namespace AuctionsProject.Models;
 public class Wallet
 {
     [Key]
+    
+    public int WalletId { get; set; }
     public int UserId { get; set; }
     [Column(TypeName = "decimal(8,2)")]
     public decimal Amount { get; set; }

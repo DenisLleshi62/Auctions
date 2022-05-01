@@ -1,3 +1,4 @@
+using AuctionsDenis.Service.ProductService;
 using AuctionsDenis.Service.UserService;
 using AuctionsProject.Data;
 using AutoMapper;
@@ -15,6 +16,7 @@ namespace AuctionsDenis.Service;
         public static void RegisterServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IUserService, UserService.UserService>();
+            serviceCollection.AddTransient<IProductService, ProductService.ProductService>();
             serviceCollection.AddTransient<IJwtUtils, JwtUtils>();
             serviceCollection.AddTransient< MapsterMapper.IMapper, Mapper>();
         
