@@ -8,6 +8,9 @@ using WebApi.Models.Users;
 
 namespace AuctionsDenis.Controllers;
 
+[Authorize]
+[ApiController]
+[Route("[controller]/")]
 public class ProductController : ControllerBase
 {
 private IProductService _productService;
@@ -26,7 +29,6 @@ public ProductController(
 /// <param name="userId">id of the user that is creating the product</param>
 /// <param name="model"></param>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpPost("CreateProduct{userId}")]
 public IActionResult CreateProduct(int userId,CreateProducts model)
 {
@@ -38,7 +40,6 @@ public IActionResult CreateProduct(int userId,CreateProducts model)
 /// </summary>
 /// <param name="bid"></param>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpPost("Bid")]
 public IActionResult Bid([FromBody]Bid bid)
 {
@@ -49,7 +50,6 @@ public IActionResult Bid([FromBody]Bid bid)
 /// returns all active products
 /// </summary>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpGet("AllProducts")]
 public IActionResult GetAll()
 {
@@ -61,7 +61,6 @@ public IActionResult GetAll()
 /// </summary>
 /// <param name="id"></param>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpGet("product/{id}")]
 public IActionResult GetById(int id)
 {
@@ -74,7 +73,6 @@ public IActionResult GetById(int id)
 /// <param name="id"></param>
 /// <param name="model"></param>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpPut("product/{id}")]
 public IActionResult Update(int id, UpdateProduct model)
 {
@@ -86,7 +84,6 @@ public IActionResult Update(int id, UpdateProduct model)
 /// </summary>
 /// <param name="id"></param>
 /// <returns></returns>
-[AllowAnonymous]
 [HttpDelete("product/{id}")]
 public IActionResult Delete(int id)
 {

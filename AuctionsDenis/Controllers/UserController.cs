@@ -58,7 +58,6 @@ namespace AuctionsDenis.Controllers;
         /// to return all users info
         /// </summary>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpGet("AllUsers")]
         public IActionResult GetAll()
         {
@@ -72,7 +71,6 @@ namespace AuctionsDenis.Controllers;
         /// </summary>
         /// <param name="id">userId</param>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -87,7 +85,6 @@ namespace AuctionsDenis.Controllers;
         /// <param name="id">userId</param>
         /// <param name="model"></param>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpPut("{id}")]
         public IActionResult Update(int id, UpdateRequest model)
         {
@@ -99,7 +96,6 @@ namespace AuctionsDenis.Controllers;
         /// </summary>
         /// <param name="id">userId</param>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
